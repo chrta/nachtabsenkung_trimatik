@@ -1,0 +1,22 @@
+# The west manifest.
+#
+# https://docs.zephyrproject.org/latest/guides/west/repo-tool.html
+# based on T2 star topology
+#
+# It pulls in zephyr itself and the required libs for this project
+
+manifest:
+  remotes:
+    - name: zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
+  projects:
+    - name: zephyr
+      remote: zephyrproject-rtos
+      revision: v2.3.0
+      import:
+        name-whitelist:
+          - cmsis
+          - hal_stm32
+
+  self:
+    path: application

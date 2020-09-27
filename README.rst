@@ -13,7 +13,7 @@ Die Tag- und Nacht-Temperatur wir ueber die verloeteten Widerstaende bestimmt.
 .. image:: hw/foto_lcd.jpg
 
 In der ersten Zeile zeigt das LCD die aktuelle Uhrzeit and, den aktuellen
-Wochentag und den aktuellen Modul (Tag oder Nacht). In der zweiten Zeile wird
+Wochentag und den aktuellen Modus (Tag oder Nacht). In der zweiten Zeile wird
 der Zeitraum angezeigt, in dem der Tagbetrieb aktiv ist.
 
 Mittels der Tasten unter dem Display ist die Fernbedienung konfigurierbar.
@@ -118,7 +118,7 @@ Widerstand.
 Anders als in den u.g. Projekten wird hier der Widerstandswert nicht per Relais
 geandert, sondern per Optokoppler und Mosfet, so dass die Schaltung robuster
 sein sollte und weniger Strom benoetigt wird. Wie bei der Relais-Schaltung
-ist auch diese Schaltung galvanisch getrennt.
+ist auch diese Widerstands-Schaltung galvanisch getrennt vom Rest.
 
 Folgende Widerstandswerte (fuer hohe Temperaturen) habe ich in
 meinem Prototypen benutzt:
@@ -153,9 +153,9 @@ Die Firmware kann auch einfach auf andere STM32-basierte Boards angepasst
 werden. Für andere Controller ist etwas mehr Aufwand notwendig, da der
 RTC-Treiber angepasst werden muss.
 
-Der Code ist nicht besonders aufgeräumt, dokumentiert oder strukturiert. Der
+Der Code ist nicht besonders aufgeraeumt, dokumentiert oder strukturiert. Der
 Schwerpunkt bei der Entwicklung lag darin in einer kurzen Zeit das o.g.
-Problem zu lösen. Da die Buttons an einem ADC-Eingang angeschlussen sind,
+Problem zu loesen. Da die Tasten an einem ADC-Eingang angeschlossen sind,
 werden diese gepollt.
 
 Um das Projekt zu compilieren und zu flashen, wird die Toolchain etc von zephyr
@@ -189,6 +189,9 @@ Aktualisieren, falls es eine neue Version im git gibt::
   $ cd <project dir>/nachabsenkung
   $ git pull
   $ west update
+
+Es sollte auch moeglich sein das Projekt mittels PlattformIO zu uebersetzen:
+https://docs.platformio.org/en/latest/frameworks/zephyr.html
 
 Links
 *****

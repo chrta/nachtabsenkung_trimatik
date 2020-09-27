@@ -6,9 +6,23 @@ Nachtabsenkung deaktiviert werden musste, wird hier die Nachabsenkung per
 simulierter analogen, zeitgesteuerter Fernbedienung umgesetzt.
 
 Das Gerat wird direkt von der Heizung mit Spannung versorgt. Die Uhrzeit und
-die Zeit der Nachtabsenkung ist ueber Buttons und Display eingestellbar.
+die Zeit der Nachtabsenkung ist ueber Tasten und Display eingestellbar.
 
 Die Tag- und Nacht-Temperatur wir ueber die verloeteten Widerstaende bestimmt.
+
+.. image:: hw/foto_lcd.jpg
+
+In der ersten Zeile zeigt das LCD die aktuelle Uhrzeit and, den aktuellen
+Wochentag und den aktuellen Modul (Tag oder Nacht). In der zweiten Zeile wird
+der Zeitraum angezeigt, in dem der Tagbetrieb aktiv ist.
+
+Mittels der Tasten unter dem Display ist die Fernbedienung konfigurierbar.
+Langes druecken der Select-Taste welchselt in den Konfigurations-Modus.
+Kurzes druecken des Select-Taste verlaesst ihn wieder. Mit den Tasten Hoch und
+Runter kann der aktuelle Wert (markiert durch einen blinkenden Cursor)
+veraendert werden.
+Mit den Recht-Links-Tasten wird zwischen den  Werten gewechselt.
+
 
 Konfiguration der Trimatik
 **************************
@@ -29,10 +43,10 @@ Fernbedienungen angeschlossen werden.
 Hardware
 ********
 
-Als Basis wurde ein guenstiges, einfach zu beschaffendes Development-Board
-ausgewählt. Wichtig dabei ist, dass die Uhrzeit einfach per RTC gespeichert
-wird und per Knopfzelle versorgt werden kann. So muss die Zeit nur sehr selten
-gestellt werden.
+Als Basis wurde ein relativ guenstiges, einfach zu beschaffendes
+Development-Board ausgewählt. Wichtig dabei ist, dass die Uhrzeit einfach
+per RTC gespeichert wird und per Knopfzelle versorgt werden kann. So muss
+die Zeit nur sehr selten gestellt werden.
 
 Genutzt werden 3 Platinen:
 
@@ -41,9 +55,9 @@ Genutzt werden 3 Platinen:
 
 https://docs.zephyrproject.org/latest/boards/arm/nucleo_f446re/doc/index.html
 
-Hier wurde eine Lötbrücke umgesetzt/entfernt um die RTC des STM32 mit einer
+Hier wurde eine Loetbrücke umgesetzt/entfernt um die RTC des STM32 mit einer
 Knopfzelle versorgen zu koennen. Zusaetzlich muss ein Jumper umgesetzt
-werden, um ds Board von aussen ueber einen Pin mit Spannung zu versorgen,
+werden, um das Board von aussen ueber einen Pin mit Spannung zu versorgen,
 siehe Schaltplan_.
 
 2. LCD und Buttons
@@ -78,8 +92,8 @@ zum CTR (der Optokoppler) passen. Ich habe zB einen PC816C benutzt.
 Als Mosfet muss ein N-FET benutzt werden, der bei niedrigen Spannungen
 durchschaltet und ein niedrigen R_DSON hat, zB der IRML2502.
 
-Ob die Scahltung funktioniert kann nach dem Aufbau mit einen einfachen
-Multimeter kontrolliert werden, indem man Im Tag- und im NAcht-Betrieb
+Ob die Schaltung funktioniert kann nach dem Aufbau mit einen einfachen
+Multimeter kontrolliert werden, indem man Im Tag- und im Nacht-Betrieb
 den Wiederstand zwischen den beiden entsprechenden Kontakten misst, die
 an Stecker 58 angeschlossen werden.
 
@@ -124,6 +138,9 @@ Die Widerstandswerte sind aus der Grafik in fuer den Tagbetrieb
 https://homematic-forum.de/forum/viewtopic.php?t=22719&start=10#p203286
 Der Modus Frostschutz ist nicht umgesetzt.
 
+Die Schaltung ist so umgesetzt, dass die Heizung im Tagbetrieb ist, wenn das
+Development-Board nicht aufgesteckt ist bzw der Mikrokontroller keinen
+Modus aktiv waehlt.
 
 
 Firmware

@@ -181,7 +181,7 @@ Compilieren und Flashen::
   $ cd <project dir>/nachabsenkung
   $ cd application
   $ source ../zephyr/zephyr-env.sh
-  $ west build -b 
+  $ west build -b nucleo_f446re
   $ west flash
 
 Aktualisieren, falls es eine neue Version im git gibt::
